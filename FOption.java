@@ -92,32 +92,30 @@ public final class FOption<T> {
 	}
 	
 	public boolean test(Predicate<T> pred) {
-		if(defined && pred.test(value)) {
+		if(defined && pred.test(value))
 			return true;
-		}
 		return false;
 	}
 	
 	public <S> FOption<S> map(Function<T,S> mapper){
-		if(defined) {
+		if(defined)
 			return FOption.of(mapper.apply(value));
-		}
-		else {
+		else
 			return FOption.empty();
-		}
 	}
 	
 	public String toString() {
 		return defined? String.format(" %s ", value) : "FOption.empty";
 	}
+	
 	@Override
 	public boolean equals(Object o) {
-		if(o instanceof FOption) {
+		if(o instanceof FOption)
 			return Objects.equals(this.value, ((FOption<?>) o).value);
-		}
 		else
 			return false;
 	}
+	
 	@Override
 	public int hashCode() {
 		return this.value.hashCode();
