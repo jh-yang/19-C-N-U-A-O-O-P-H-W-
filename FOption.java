@@ -65,7 +65,7 @@ public final class FOption<T> {
 
 	// if defined is true, then return value. Else, return elseSupplier
 	public T getOrElse(Supplier<T> elseSupplier) {
-			return defined? value : elseSupplier.get();
+		return defined? value : elseSupplier.get();
 	}
 	
 	// if defined is true ,then return value. Else, throws X;
